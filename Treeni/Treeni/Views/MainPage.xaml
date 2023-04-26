@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Treeni.MainPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="320" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Row="0" Margin="10">
+                    <Label Text="TREENING KODUKS" FontSize="Title" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                </StackLayout>
+                <StackLayout Grid.Row="1" Padding="4" BackgroundColor="SkyBlue">
+                    <Grid ColumnDefinitions="1*,1*,1*">
+                        <Label Text="Treeningud" Grid.Column="0" Grid.Row="0" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                        <Label Text="Kaal" Grid.Column="1" Grid.Row="0" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                        <Label Text="Minutes" Grid.Column="2" Grid.Row="0" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                    </Grid>
+                    <Grid ColumnDefinitions="1*,1*,1*">
+                        <Label Text="55" Grid.Column="0" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                        <Label Text="1828" Grid.Column="1" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                        <Label Text="500" Grid.Column="2" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                    </Grid>
+                    <Grid ColumnDefinitions="1*">
+                        <Frame Grid.Row="0" CornerRadius="19" OutlineColor="Black" BackgroundColor="SkyBlue" Padding="0" Margin="10">
+                            <StackLayout>
+                                <Label Text="Nädala eesmärk" FontSize="Title"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                                <Label Text="Parimate tulemuste saavutamiseks seadke iganädalased eesmärgid" FontSize="Medium" Margin="30" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                                <Button Text="Eesmärk" Background="Gray" Margin="30" CornerRadius="60"/>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
+                <StackLayout Grid.Row="2" Padding="4" BackgroundColor="White">
+                    <Label Text="Kõhulihaste treening" FontSize="Medium" FontFamily="Sigmar.ttf#Sigmar"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                    <Image x:Name="Plank" Source="plank.jpg" HeightRequest="170" WidthRequest="300" Opacity="0.8" Grid.Column="0" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Plank_Dc"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Text="Rindkere treening" FontSize="Medium" FontFamily="Sigmar.ttf#Sigmar"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                    <Image x:Name="Grud" Source="grud.jpg" HeightRequest="170" WidthRequest="300" Opacity="0.8" Grid.Column="1" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Grud_Dc"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Text="Käte treening" FontSize="Medium" FontFamily="Sigmar.ttf#Sigmar" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                    <Image x:Name="Ruki" Source="ruki.jpg" HeightRequest="170" WidthRequest="300" Opacity="0.8" Grid.Column="2" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Ruki_Dc"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Text="Jalgade treening" FontSize="Medium" FontFamily="Sigmar.ttf#Sigmar" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                    <Image x:Name="Nogi" Source="nogi.jpg" HeightRequest="200" WidthRequest="300" Opacity="0.8" Grid.Column="3" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Nogi_Dc"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Text="Õlgade treening" FontSize="Medium" FontFamily="Sigmar.ttf#Sigmar" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                    <Image x:Name="Ple4i" Source="ple4i.jpg" HeightRequest="200" WidthRequest="300" Opacity="0.8" Grid.Column="4" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Ple4i_DC"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+        </ContentPage.Content>
+</ContentPage>
