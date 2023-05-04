@@ -1,9 +1,10 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Treeni.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,13 +16,13 @@ namespace Treeni.Views
         private int _currentExercise = 0;
         private List<(string, string, string)> _exercises = new List<(string, string, string)>
         {
-            ("Exercise 1", "exercise1.png", "Description of exercise 1."),
-            ("Exercise 2", "exercise2.png", "Description of exercise 2."),
-            ("Exercise 3", "exercise3.png", "Description of exercise 3."),
-            ("Exercise 4", "exercise4.png", "Description of exercise 4."),
-            ("Exercise 5", "exercise5.png", "Description of exercise 5."),
-            ("Exercise 6", "exercise6.png", "Description of exercise 6."),
-            ("Exercise 7", "exercise7.png", "Description of exercise 7.")
+            ("Põhiplank", "basicplank.png", "Võtke tavaline plangu asend nii, et küünarvarred on maas ja keha on sirgjooneliselt. Hoidke seda asendit 60 sekundit kuni minut või nii kaua kui võimalik."),
+            ("Külgplank", "kulgplank.png", "Võtke plangu asend, kuid pöörake keha ühele küljele, toetades end ühe käe ja ühe jala küljega. Hoidke 60 sekundit, seejärel vahetage külgi."),
+            ("Plangu tungraud", "plangu.png", "Võtke planguasend nii, et jalad on lähestikku. Hüppa oma jalad külgedele, seejärel tagasi kokku, säilitades samal ajal plangu asendi. Tehke seda 30 sekundit kuni minut."),
+            ("Jalgade tõstmisega plank", "jalgplank.png", "Võtke plangu asend, seejärel tõstke üks jalg maast üles ja hoidke seda mõni sekund. Langetage jalg ja korrake seda teise jalaga. Jätkake vaheldumisi 30 sekundit kuni minut."),
+            ("Õlakappidega plank", "kappplank.png", "Võtke plangu asend, seejärel tõstke üks käsi maast lahti ja koputage vastasõla. Langetage käsi ja korrake teise käega. Jätkake vaheldumisi 30 sekundit kuni minut."),
+            ("Plangu puusa tõstmine", "puusaplank.png", "Asuge küünarvartele plangu asendisse. Tõstke üks verejalg üles, hoides verevarustust kannast peani. Hoidke jalga selles asendis paar sekundit, seejärel langetage ja korrake teisega. Jätkake jalgade vaheldumisi 30 sekundit kuni minut."),
+            ("Plangu tõstmine", "plangut.png", "Seadke oma küünarvartele planguasendisse. Tõstke üks käsi üles, hoides ülejäänud tilka käest kannani. Laske end selles asendis mõni sekund olla. Jätkake käte vaheldumisi 30 sekundit kuni minut.")
         };
 
         private TimeSpan _exerciseDuration = TimeSpan.FromSeconds(60);
@@ -74,7 +75,14 @@ namespace Treeni.Views
             {
                 _timerRunning = false;
                 _currentExercise = 0;
-                await DisplayAlert("Congratulations!", "You have completed all exercises.", "OK");
+                await DisplayAlert("Palju õnne!", "Olete kõik harjutused täitnud.", "OK");
+                var exercise = new Tren
+                {
+                    Kaal = 200,
+                    Minutes = 15,
+                    Trennid = 1
+                };
+                App.Database.AddExercise(exercise);
                 await Navigation.PopAsync();
             }
             else
@@ -84,6 +92,7 @@ namespace Treeni.Views
                 ExerciseDescription.Text = _exercises[_currentExercise].Item3;
                 _currentTime = _exerciseDuration;
                 TimerLabel.Text = _currentTime.ToString(@"mm\:ss");
+
             }
         }
 

@@ -21,9 +21,9 @@
                         <Label Text="Minutes" Grid.Column="2" Grid.Row="0" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
                     </Grid>
                     <Grid ColumnDefinitions="1*,1*,1*">
-                        <Label Text="{Binding Trennid}" Grid.Column="0" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
-                        <Label Text="{Binding Minutes}" Grid.Column="1" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
-                        <Label Text="{Binding Kaal}" Grid.Column="2" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                        <Label Text="{Binding Trennid}" x:Name="Trennid" Grid.Column="0" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                        <Label Text="{Binding Minutes}" x:Name="Minutes" Grid.Column="1" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                        <Label Text="{Binding Kaal}" x:Name="Kaal" Grid.Column="2" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
                     </Grid>
                     <Grid ColumnDefinitions="1*">
                         <Frame Grid.Row="0" CornerRadius="19" OutlineColor="Black" BackgroundColor="SkyBlue" Padding="0" Margin="10">

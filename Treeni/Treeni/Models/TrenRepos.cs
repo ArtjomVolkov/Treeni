@@ -1,41 +1,39 @@
 ﻿using SQLite;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace Treeni.Models
 {
     public class TrenRepos
     {
-        SQLiteConnection database;
-        public TrenRepos(string databasePath)
+        private readonly SQLiteConnection database;
+
+        public TrenRepos(string dbPath)
         {
-            database = new SQLiteConnection(databasePath);
+            database = new SQLiteConnection(dbPath);
             database.CreateTable<Tren>();
         }
-        public IEnumerable<Tren> GetItems()
+
+        public List<Tren> GetAllExercises()
         {
             return database.Table<Tren>().ToList();
         }
-        public Tren GetItem(int id)
+
+        public void AddExercise(Tren exercise)
         {
-            return database.Get<Tren>(id);
+            database.Insert(exercise);
         }
-        public int DeleteItem(int id)
+
+        public void UpdateExercise(Tren exercise)
         {
-            return database.Delete<Tren>(id);
+            database.Update(exercise);
         }
-        public int SaveItem(Tren item)
+
+        public void DeleteExercise(int id)
         {
-            if (item.Id != 0)
-            {
-                database.Update(item);
-                return item.Id;
-            }
-            else
-            {
-                return database.Insert(item);
-            }
+            database.Delete<Tren>(id);
         }
     }
 }

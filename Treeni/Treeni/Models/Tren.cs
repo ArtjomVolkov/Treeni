@@ -11,12 +11,8 @@ namespace Treeni.Models
     {
         [PrimaryKey, AutoIncrement, Column("_id")]
         public int Id { get; set; }
-        public string Trennid { get; set; }
-        public string Kaal { get; set; }
-        public string Minutes { get; set; }
-        public ImageSource image { get; set; }
-        public string Description { get; set; }
-        public TimeSpan timer { get; set; }
-        public string execrise { get; set; }
+        public int Trennid { get; set; }
+        public int Kaal { get; set; }
+        public int Minutes { get; set; }
     }
 }
