@@ -18,7 +18,14 @@ namespace Treeni
             InitializeComponent();
         }
 
+        protected override void OnAppearing()
+        {
+            ShowItems;
+        }
+        private void ShowItems()
+        {
 
+        }
         private async void Ple4i_DC(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Page());

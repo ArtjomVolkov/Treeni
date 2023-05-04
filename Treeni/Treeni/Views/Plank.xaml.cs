@@ -76,7 +76,7 @@ namespace Treeni.Views
                 _timerRunning = false;
                 _currentExercise = 0;
                 await DisplayAlert("Palju õnne!", "Olete kõik harjutused täitnud.", "OK");
-                var exercise = new Tren
+                Tren exercise = new Tren
                 {
                     Kaal = 200,
                     Minutes = 15,
