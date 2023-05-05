@@ -15,14 +15,6 @@ namespace Treeni.Models
             database = new SQLiteConnection(dbPath);
             database.CreateTable<Tren>();
         }
-        /*public IEnumerable<Tren> GetAllExercises()
-        {
-            return database.Table<Tren>().ToList();
-        }
-        public Tren GetAllExercises(int id)
-        {
-            return database.Get<Tren>(id);
-        }*/
         public List<Tren> GetAllExercises()
         {
             return database.Table<Tren>().ToList();

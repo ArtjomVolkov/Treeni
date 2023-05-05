@@ -81,9 +81,9 @@ namespace Treeni.Views
                 int Trennid = 0;
                 Tren exercise = new Tren
                 {
-                    Kaal = Kaal + 200, // add 200 to the current value of Kaal
-                    Minutes = Minutes + 25, // add 25 to the current value of Minutes
-                    Trennid = Trennid + 1 // add 1 to the current value of Trennid
+                    Kaal = Kaal + 200,
+                    Minutes = Minutes + 25, 
+                    Trennid = Trennid + 1 
                 };
                 App.Database.UpdateExercise(exercise);
                 await Navigation.PopAsync();
