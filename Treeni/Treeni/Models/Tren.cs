@@ -6,10 +6,9 @@ using Xamarin.Forms;
 
 namespace Treeni.Models
 {
-    [Table("Tren")]
     public class Tren
     {
-        [PrimaryKey, AutoIncrement, Column("_id")]
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public int Trennid { get; set; }
         public int Kaal { get; set; }

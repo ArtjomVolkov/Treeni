@@ -76,13 +76,16 @@ namespace Treeni.Views
                 _timerRunning = false;
                 _currentExercise = 0;
                 await DisplayAlert("Palju õnne!", "Olete kõik harjutused täitnud.", "OK");
+                int Kaal = 0;
+                int Minutes = 0;
+                int Trennid = 0;
                 Tren exercise = new Tren
                 {
-                    Kaal = 200,
-                    Minutes = 15,
-                    Trennid = 1
+                    Kaal = Kaal + 200, // add 200 to the current value of Kaal
+                    Minutes = Minutes + 25, // add 25 to the current value of Minutes
+                    Trennid = Trennid + 1 // add 1 to the current value of Trennid
                 };
-                App.Database.AddExercise(exercise);
+                App.Database.UpdateExercise(exercise);
                 await Navigation.PopAsync();
             }
             else

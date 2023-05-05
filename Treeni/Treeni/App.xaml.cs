@@ -15,7 +15,7 @@ namespace Treeni
             {
                 if (database == null)
                 {
-                    database = new TrenRepos(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "treeni.db3"));
+                    database = new TrenRepos(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "treen.db3"));
                 }
                 return database;
             }
