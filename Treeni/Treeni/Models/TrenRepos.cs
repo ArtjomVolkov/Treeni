@@ -34,5 +34,10 @@ namespace Treeni.Models
         {
             database.Delete<Tren>(id);
         }
+        public void ClearDatabase()
+        {
+            database.DropTable<Tren>();
+            database.CreateTable<Tren>();
+        }
     }
 }

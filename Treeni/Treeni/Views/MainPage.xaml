@@ -9,28 +9,29 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="320" />
                     <RowDefinition Height="*" />
+                    <RowDefinition Height="70" />
                 </Grid.RowDefinitions>
 
-                <StackLayout Grid.Row="0" Margin="10">
+                <StackLayout Grid.Row="0" Margin="10" BackgroundColor="White">
                     <Label Text="TREENING KODUKS" FontSize="Title" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
                 </StackLayout>
-                <StackLayout Grid.Row="1" Padding="4" BackgroundColor="SkyBlue">
+                <StackLayout Grid.Row="1" Padding="2" BackgroundColor="SkyBlue">
                     <Grid ColumnDefinitions="1*,1*,1*">
-                        <Label Text="Treeningud" Grid.Column="0" Grid.Row="0" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
-                        <Label Text="Kaal" Grid.Column="1" Grid.Row="0" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
-                        <Label Text="Minutes" Grid.Column="2" Grid.Row="0" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                        <Label Text="Treenid" Grid.Column="0" Grid.Row="0" HeightRequest="40" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                        <Label Text="Kaloreid" Grid.Column="1" Grid.Row="0" HeightRequest="40" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                        <Label Text="Minutit" Grid.Column="2" Grid.Row="0" HeightRequest="40" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
                     </Grid>
                     <Grid ColumnDefinitions="1*,1*,1*">
-                        <Label Text="{Binding Trennid}" x:Name="Trennid" Grid.Column="0" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
-                        <Label Text="{Binding Minutes}" x:Name="Minutes" Grid.Column="1" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
-                        <Label Text="{Binding Kaal}" x:Name="Kaal" Grid.Column="2" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                        <Label Text="{Binding Trennid}" x:Name="TrennidLabel" HeightRequest="40" Grid.Column="0" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                        <Label Text="{Binding Kaal}" x:Name="KaalLabel"  HeightRequest="40" Grid.Column="1" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                        <Label Text="{Binding Minutes}" x:Name="MinutesLabel" HeightRequest="40" Grid.Column="2" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
                     </Grid>
                     <Grid ColumnDefinitions="1*">
-                        <Frame Grid.Row="0" CornerRadius="19" OutlineColor="Black" BackgroundColor="SkyBlue" Padding="0" Margin="10">
+                        <Frame Grid.Row="0" CornerRadius="19" OutlineColor="Black" BackgroundColor="SkyBlue" Padding="0" Margin="2">
                             <StackLayout>
                                 <Label Text="Nädala eesmärk" FontSize="Title"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
-                                <Label Text="Parimate tulemuste saavutamiseks seadke iganädalased eesmärgid" FontSize="Medium" Margin="30" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
-                                <Button Text="Eesmärk" Background="Gray" Margin="30" CornerRadius="60"/>
+                                <Label Text="Parimate tulemuste saavutamiseks seadke iganädalased eesmärgid" FontSize="Medium" Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                                <Button Text="Eesmärk" Background="Gray" Padding="10" CornerRadius="60" Clicked="OnGoalButtonClicked"/>
                             </StackLayout>
                         </Frame>
                     </Grid>
@@ -66,6 +67,9 @@
                             <TapGestureRecognizer Tapped="Ple4i_DC"/>
                         </Image.GestureRecognizers>
                     </Image>
+                </StackLayout>
+                <StackLayout Grid.Row="3" Padding="4" >
+                    <Button x:Name="clearDB" Background="Gray" CornerRadius="60" Text="Kustuta Database" Clicked="ClearDB_Clicked"/>
                 </StackLayout>
             </Grid>
         </ScrollView>

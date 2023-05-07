@@ -1,5 +1,4 @@
-﻿using SQLite;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,27 +10,27 @@ using Xamarin.Forms.Xaml;
 namespace Treeni.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Plank : ContentPage
+    public partial class Grud : ContentPage
     {
         private DateTime _pageAppearingTime;
         private int _currentExercise = 0;
         private List<(string, string, string)> _exercises = new List<(string, string, string)>
         {
-            ("Põhiplank", "basicplank.png", "Võtke tavaline plangu asend nii, et küünarvarred on maas ja keha on sirgjooneliselt. Hoidke seda asendit 60 sekundit kuni minut või nii kaua kui võimalik."),
-            ("Külgplank", "kulgplank.png", "Võtke plangu asend, kuid pöörake keha ühele küljele, toetades end ühe käe ja ühe jala küljega. Hoidke 60 sekundit, seejärel vahetage külgi."),
-            ("Plangu tungraud", "plangu.png", "Võtke planguasend nii, et jalad on lähestikku. Hüppa oma jalad külgedele, seejärel tagasi kokku, säilitades samal ajal plangu asendi. Tehke seda 30 sekundit kuni minut."),
-            ("Jalgade tõstmisega plank", "jalgplank.png", "Võtke plangu asend, seejärel tõstke üks jalg maast üles ja hoidke seda mõni sekund. Langetage jalg ja korrake seda teise jalaga. Jätkake vaheldumisi 30 sekundit kuni minut."),
-            ("Õlakappidega plank", "kappplank.png", "Võtke plangu asend, seejärel tõstke üks käsi maast lahti ja koputage vastasõla. Langetage käsi ja korrake teise käega. Jätkake vaheldumisi 30 sekundit kuni minut."),
-            ("Plangu puusa tõstmine", "puusaplank.png", "Asuge küünarvartele plangu asendisse. Tõstke üks verejalg üles, hoides verevarustust kannast peani. Hoidke jalga selles asendis paar sekundit, seejärel langetage ja korrake teisega. Jätkake jalgade vaheldumisi 30 sekundit kuni minut."),
-            ("Plangu tõstmine", "plangut.png", "Seadke oma küünarvartele planguasendisse. Tõstke üks käsi üles, hoides ülejäänud tilka käest kannani. Laske end selles asendis mõni sekund olla. Jätkake käte vaheldumisi 30 sekundit kuni minut.")
-        };
+            ("Tavaline kätekõverdus", "pushup.png", "Asetage käed õlgade laiusele. Langetage keha kätekõverdustega põrandale, kuni rind puudutab seda peaaegu. Tõstke keha tagasi algasendisse. Tehke seda 30 sekundit kuni minut."),
+            ("Plangukõnnak", "wallpushup.png", "Asetage keha planguasendisse, käed õlgade all ja keha sirge. Kõnni kätega edasi ja tagasi, hoides keha paigal. Tehke seda 30 sekundit kuni minut."),
+            ("Käsivarte pumpamine", "dumbbellpress.png", "Asetage käed toolile või lauale, hoides keha sirge. Painutage käsi ja langetage keha toolile või lauale, kuni rind puudutab seda peaaegu. Tõstke keha tagasi algasendisse. Tehke seda 30 sekundit kuni minut."),
+            ("Hantli surumine lamades", "cheststretch.png", "Lamage selili ja hoidke hantleid rinnal. Tõstke hantlid üles, surudes neid rinnale, ja seejärel langetage tagasi algasendisse. Tehke seda 30 sekundit kuni minut."),
+            ("Hüppekätekõverdused", "dumbbellfly.png", "Asetage käed õlgade laiusele ja hüpake kätekõverdustesse. Hüpake tagasi algasendisse ja korrake. Tehke seda 30 sekundit kuni minut."),
+            ("Kurvides hantlite surumine", "walljump.png", "Istuge toolil, hoides hantleid õlgade kõrgusel. Painutage käsi, tõstke hantlid üles ja suruge need tagasi algasendisse. Tehke seda 30 sekundit kuni minut."),
+            ("Plangukätekõverdused", "diver.png", "Asetage keha planguasendisse, käed õlgade all ja keha sirge. Painutage käsi ja langetage keha kätekõverdustega põrandale, seejärel tõstke tagasi algasendisse. Tehke seda 30 sekundit kuni minut.")
+         };
 
         private TimeSpan _exerciseDuration = TimeSpan.FromSeconds(60);
         private TimeSpan _currentTime = TimeSpan.Zero;
         private bool _timerRunning = false;
         public int duraction = 0;
 
-        public Plank()
+        public Grud()
         {
             InitializeComponent();
             BindingContext = this;
@@ -86,7 +85,7 @@ namespace Treeni.Views
                 _timerRunning = false;
                 _currentExercise = 0;
                 await DisplayAlert("Palju õnne!", "Olete kõik harjutused täitnud.", "OK");
-                int Kaal = duraction * 3;
+                int Kaal = duraction * 7;
                 int Trennid = 1;
                 Tren exercise = new Tren
                 {
