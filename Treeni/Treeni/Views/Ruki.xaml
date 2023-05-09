@@ -3,10 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Treeni.Views.Ruki">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <ScrollView>
+        <StackLayout Spacing="10" Padding="20" BackgroundColor="White">
+            <Label x:Name="ExerciseName" Text="{Binding ExerciseName}" FontFamily="Sigmar.ttf#Sigmar" FontSize="Large" FontAttributes="Bold"
+                   VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+            <Image x:Name="ExerciseImage" Source="{Binding ExerciseImage}" Aspect="AspectFit"
+                   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="ExerciseDescription" Text="{Binding ExerciseDescription}"
+                   VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+            <Label x:Name="TimerLabel" Text="{Binding TimerLabel}" FontSize="Large" FontAttributes="Bold" TextColor="Black"
+                   VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button x:Name="StartBtn" Text="Start" Clicked="StartTimerButton_Clicked" />
+                <Button x:Name="OffBtn" Text="End" Clicked="EndTimerButton_Clicked" />
+            </StackLayout>
+            <Button x:Name="NextExerciseButton" Text="Järgmine harjutus" Clicked="NextExerciseButton_Clicked"
+                    IsVisible="True" HorizontalOptions="CenterAndExpand" />
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

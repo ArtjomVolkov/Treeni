@@ -12,8 +12,8 @@ namespace Treeni.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Grud : ContentPage
     {
-        private DateTime _pageAppearingTime;
-        private int _currentExercise = 0;
+        private DateTime _pageTime;
+        private int curExer = 0;
         private List<(string, string, string)> _exercises = new List<(string, string, string)>
         {
             ("Tavaline kätekõverdus", "pushup.png", "Asetage käed õlgade laiusele. Langetage keha kätekõverdustega põrandale, kuni rind puudutab seda peaaegu. Tõstke keha tagasi algasendisse. Tehke seda 30 sekundit kuni minut."),
@@ -25,9 +25,9 @@ namespace Treeni.Views
             ("Plangukätekõverdused", "diver.png", "Asetage keha planguasendisse, käed õlgade all ja keha sirge. Painutage käsi ja langetage keha kätekõverdustega põrandale, seejärel tõstke tagasi algasendisse. Tehke seda 30 sekundit kuni minut.")
          };
 
-        private TimeSpan _exerciseDuration = TimeSpan.FromSeconds(60);
-        private TimeSpan _currentTime = TimeSpan.Zero;
-        private bool _timerRunning = false;
+        private TimeSpan exerciseTimer = TimeSpan.FromSeconds(60);
+        private TimeSpan CurTime = TimeSpan.Zero;
+        private bool timer = false;
         public int duraction = 0;
 
         public Grud()
@@ -35,55 +35,58 @@ namespace Treeni.Views
             InitializeComponent();
             BindingContext = this;
 
-            _currentExercise = 0;
-            ExerciseName.Text = _exercises[_currentExercise].Item1;
-            ExerciseImage.Source = ImageSource.FromFile(_exercises[_currentExercise].Item2);
-            ExerciseDescription.Text = _exercises[_currentExercise].Item3;
+            curExer = 0;
+            ExerciseName.Text = _exercises[curExer].Item1;
+            ExerciseImage.Source = ImageSource.FromFile(_exercises[curExer].Item2);
+            ExerciseDescription.Text = _exercises[curExer].Item3;
 
-            _currentTime = _exerciseDuration;
-            TimerLabel.Text = _currentTime.ToString(@"mm\:ss");
-            _pageAppearingTime = DateTime.Now;
+            CurTime = exerciseTimer;
+            TimerLabel.Text = CurTime.ToString(@"mm\:ss");
+            _pageTime = DateTime.Now;
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            _pageAppearingTime = DateTime.Now;
+            _pageTime = DateTime.Now;
         }
         private void StartTimerButton_Clicked(object sender, EventArgs e)
         {
-            _timerRunning = true;
+            StartBtn.IsEnabled = false;
+            timer = true;
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
-                _currentTime -= TimeSpan.FromSeconds(1);
-                TimerLabel.Text = _currentTime.ToString(@"mm\:ss");
+                CurTime -= TimeSpan.FromSeconds(1);
+                TimerLabel.Text = CurTime.ToString(@"mm\:ss");
 
-                if (_currentTime.TotalSeconds <= 0)
+                if (CurTime.TotalSeconds <= 0)
                 {
                     NextExercise();
                     return false;
                 }
 
-                return _timerRunning;
+                return timer;
             });
+
         }
 
         private void EndTimerButton_Clicked(object sender, EventArgs e)
         {
-            _timerRunning = false;
-            _currentTime = _exerciseDuration;
-            TimerLabel.Text = _currentTime.ToString(@"mm\:ss");
+            timer = false;
+            StartBtn.IsEnabled = true;
+            CurTime = exerciseTimer;
+            TimerLabel.Text = CurTime.ToString(@"mm\:ss");
         }
 
         private async void NextExercise()
         {
             var pageLeavingTime = DateTime.Now;
-            duraction = (int)pageLeavingTime.Subtract(_pageAppearingTime).TotalSeconds;
+            duraction = (int)pageLeavingTime.Subtract(_pageTime).TotalSeconds;
             Console.WriteLine("Time: " + duraction + " minutes");
-            _currentExercise++;
-            if (_currentExercise >= _exercises.Count)
+            curExer++;
+            if (curExer >= _exercises.Count)
             {
-                _timerRunning = false;
-                _currentExercise = 0;
+                timer = false;
+                curExer = 0;
                 await DisplayAlert("Palju õnne!", "Olete kõik harjutused täitnud.", "OK");
                 int Kaal = duraction * 7;
                 int Trennid = 1;
@@ -98,12 +101,18 @@ namespace Treeni.Views
             }
             else
             {
-                ExerciseName.Text = _exercises[_currentExercise].Item1;
-                ExerciseImage.Source = ImageSource.FromFile(_exercises[_currentExercise].Item2);
-                ExerciseDescription.Text = _exercises[_currentExercise].Item3;
-                _currentTime = _exerciseDuration;
-                TimerLabel.Text = _currentTime.ToString(@"mm\:ss");
+                ExerciseName.Text = _exercises[curExer].Item1;
+                ExerciseImage.Source = ImageSource.FromFile(_exercises[curExer].Item2);
+                ExerciseDescription.Text = _exercises[curExer].Item3;
+                CurTime = exerciseTimer;
+                TimerLabel.Text = CurTime.ToString(@"mm\:ss");
 
+                if (timer)
+                {
+                    var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+                    player.Load("bud.mp3");
+                    player.Play();
+                }
             }
 
         }

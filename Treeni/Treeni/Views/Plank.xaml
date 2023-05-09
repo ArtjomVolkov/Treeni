@@ -4,21 +4,23 @@
              x:Class="Treeni.Views.Plank"
              Title="Plank">
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="20" BackgroundColor="White">
-            <Label x:Name="ExerciseName" Text="{Binding ExerciseName}" FontFamily="Sigmar.ttf#Sigmar" FontSize="Large" FontAttributes="Bold"
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="20" BackgroundColor="White">
+                <Label x:Name="ExerciseName" Text="{Binding ExerciseName}" FontFamily="Sigmar.ttf#Sigmar" FontSize="Large" FontAttributes="Bold"
                    VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
-            <Image x:Name="ExerciseImage" Source="{Binding ExerciseImage}" Aspect="AspectFit"
+                <Image x:Name="ExerciseImage" Source="{Binding ExerciseImage}" Aspect="AspectFit"
                    VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-            <Label x:Name="ExerciseDescription" Text="{Binding ExerciseDescription}"
+                <Label x:Name="ExerciseDescription" Text="{Binding ExerciseDescription}"
                    VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
-            <Label x:Name="TimerLabel" Text="{Binding TimerLabel}" FontSize="Large" FontAttributes="Bold" TextColor="Black"
+                <Label x:Name="TimerLabel" Text="{Binding TimerLabel}" FontSize="Large" FontAttributes="Bold" TextColor="Black"
                    VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
-            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                <Button Text="Start" Clicked="StartTimerButton_Clicked" />
-                <Button Text="End" Clicked="EndTimerButton_Clicked" />
-            </StackLayout>
-            <Button x:Name="NextExerciseButton" Text="Järgmine harjutus" Clicked="NextExerciseButton_Clicked"
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Button x:Name="StartBtn" Text="Start" Clicked="StartTimerButton_Clicked" />
+                    <Button x:Name="OffBtn" Text="End" Clicked="EndTimerButton_Clicked" />
+                </StackLayout>
+                <Button x:Name="NextExerciseButton" Text="Järgmine harjutus" Clicked="NextExerciseButton_Clicked"
                     IsVisible="True" HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

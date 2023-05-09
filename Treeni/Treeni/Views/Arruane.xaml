@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xc="clr-namespace:XCalendar;assembly=XCalendar"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             x:Class="Treeni.Views.Arruane">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="White">
+                <!-- Календарь месяца -->
+                <xc:CalendarView x:Name="calendar" SelectionType="Single"/>
+
+                <StackLayout>
+                    <microcharts:ChartView x:Name="weightChart" HeightRequest="300"/>
+                </StackLayout>
+                <!-- Форма для добавления нового веса -->
+                <StackLayout>
+                    <Label Text="Добавить вес" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Entry x:Name="weightEntry" Placeholder="Вес" VerticalOptions="Center" HorizontalOptions="Center" Keyboard="Numeric" TextColor="Black"/>
+                    <Button Text="Сохранить" Clicked="SaveButton_Clicked" x:Name="saveButton" />
+                    <Button Text="Удалить всё" Clicked="DeleteButton_Clicked" x:Name="delButton" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

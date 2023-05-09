@@ -18,7 +18,6 @@ namespace Treeni
 {
     public partial class MainPage : ContentPage
     {
-
         public MainPage()
         {
             InitializeComponent();
@@ -43,12 +42,12 @@ namespace Treeni
 
         private async void Ruki_Dc(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Page());
+            await Navigation.PushAsync(new Ruki());
         }
 
         private async void Nogi_Dc(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Page());
+            await Navigation.PushAsync(new Nogi());
         }
 
         private void UpdateExerciseValues()

@@ -1,6 +1,7 @@
 ﻿using System;
 using Treeni.Models;
 using Xamarin.Forms;
+using Treeni.Views;
 using Xamarin.Forms.Xaml;
 using System.IO;
 
@@ -23,8 +24,7 @@ namespace Treeni
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new MyMasterPage());
         }
 
         protected override void OnStart()
