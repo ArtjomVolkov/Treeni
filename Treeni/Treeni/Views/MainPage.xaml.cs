@@ -27,7 +27,7 @@ namespace Treeni
 
         private async void Ple4i_DC(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Page());
+            await Navigation.PushAsync(new Ple4i());
         }
 
         private async void Plank_Dc(object sender, EventArgs e)

@@ -7,7 +7,7 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="320" />
+                    <RowDefinition Height="340" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="70" />
                 </Grid.RowDefinitions>
@@ -27,10 +27,10 @@
                         <Label Text="{Binding Minutes}" x:Name="MinutesLabel" HeightRequest="40" Grid.Column="2" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
                     </Grid>
                     <Grid ColumnDefinitions="1*">
-                        <Frame Grid.Row="0" CornerRadius="19" OutlineColor="Black" BackgroundColor="SkyBlue" Padding="0" Margin="2">
+                        <Frame Grid.Row="0" CornerRadius="19" OutlineColor="Black" BackgroundColor="SkyBlue" Padding="20" Margin="2">
                             <StackLayout>
-                                <Label Text="Nädala eesmärk" FontSize="Title"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
-                                <Label Text="Parimate tulemuste saavutamiseks seadke iganädalased eesmärgid" FontSize="Medium" Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                                <Label Text="Nädala eesmärk" FontSize="Title" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                                <Label Text="Parimate tulemuste saavutamiseks seadke iganädalased eesmärgid" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
                                 <Button Text="Eesmärk" Background="Gray" Padding="10" CornerRadius="60" Clicked="OnGoalButtonClicked"/>
                             </StackLayout>
                         </Frame>

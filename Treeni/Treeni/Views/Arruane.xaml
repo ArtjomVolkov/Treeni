@@ -16,7 +16,7 @@
                 <!-- Форма для добавления нового веса -->
                 <StackLayout>
                     <Label Text="Добавить вес" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"/>
-                    <Entry x:Name="weightEntry" Placeholder="Вес" VerticalOptions="Center" HorizontalOptions="Center" Keyboard="Numeric" TextColor="Black"/>
+                    <Entry x:Name="weightEntry" Placeholder="Kaal" Keyboard="Numeric" TextColor="Black"/>
                     <Button Text="Сохранить" Clicked="SaveButton_Clicked" x:Name="saveButton" />
                     <Button Text="Удалить всё" Clicked="DeleteButton_Clicked" x:Name="delButton" />
                 </StackLayout>

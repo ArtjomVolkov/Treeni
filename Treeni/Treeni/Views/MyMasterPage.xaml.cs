@@ -46,5 +46,15 @@ namespace Treeni.Views
         {
             await Navigation.PushAsync(new Arruane());
         }
+
+        private async void meeldetuletus_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Meeldetuletus());
+        }
+
+        private async void youtube_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Youtube());
+        }
     }
 }
