@@ -10,8 +10,7 @@
                         <Image Source="sportlane.jpg" WidthRequest="100" HeightRequest="100" VerticalOptions="Center" HorizontalOptions="Center"  Margin="10"/>
                         <Button x:Name="home" Background="White" Text="Koju" Clicked="home_Clicked" TextColor="Black"/>
                         <Button x:Name="aruanne" Background="White" CornerRadius="60" Clicked="aruanne_Clicked" Text="Aruanne" TextColor="Black"/>
-                        <Button x:Name="meeldetuletus" Background="White" CornerRadius="60" Clicked="meeldetuletus_Clicked" Text="Meeldetuletus" TextColor="Black"/>
-                        <Button x:Name="seaded" Background="White" CornerRadius="60" Text="Seaded" TextColor="Black"/>
+                        <Button x:Name="seaded" Background="White" CornerRadius="60" Text="Seaded" Clicked="seaded_Clicked" TextColor="Black"/>
                         <Button x:Name="youtube" Background="White" CornerRadius="60" Text="Youtube" Clicked="youtube_Clicked" TextColor="Black"/>
                         <Button x:Name="clearDB" Background="White" CornerRadius="60" Text="Kustuta Database" Clicked="ClearDB_Clicked" TextColor="Black"/>
                     </StackLayout>

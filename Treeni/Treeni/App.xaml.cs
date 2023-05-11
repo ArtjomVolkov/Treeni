@@ -9,6 +9,19 @@ namespace Treeni
 {
     public partial class App : Application
     {
+        public static UserRepos databases;
+        public static UserRepos Databases
+        {
+            get
+            {
+                if (databases == null)
+                {
+                    databases = new UserRepos(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "user.db3"));
+                }
+                return databases;
+            }
+        }
+
         public static TrenRepos database;
         public static TrenRepos Database
         {
