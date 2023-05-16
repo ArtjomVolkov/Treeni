@@ -150,6 +150,11 @@ namespace Treeni
             MinutesLabel.Text = "0";
             KaalLabel.Text = "0";
         }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new program7x4());
+        }
     }
 
 }

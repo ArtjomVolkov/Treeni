@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Treeni.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,10 +12,12 @@ namespace Treeni.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MyMasterPage : MasterDetailPage
     {
+        private UserSettings userSettings;
         public MyMasterPage()
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+            userSettings = new UserSettings();
             OnAppearing();
         }
         private void ClearDB_Clicked(object sender, EventArgs e)
@@ -25,15 +27,20 @@ namespace Treeni.Views
         }
         protected override void OnAppearing()
         {
+            string nimid = userSettings.Name;
             base.OnAppearing();
             var Time = DateTime.Now.TimeOfDay;
             if (Time < new TimeSpan(12, 0, 0))
             {
                 tere.Text = "Tere hommikust";
             }
-            else
+            else if(Time < new TimeSpan(18, 0, 0))
             {
                 tere.Text = "Tere päevast";
+            }
+            else
+            {
+                tere.Text = "Tere õhtust";
             }
         }
 

@@ -15,10 +15,10 @@
                 </StackLayout>
                 <!-- Форма для добавления нового веса -->
                 <StackLayout>
-                    <Label Text="Добавить вес" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Label Text="Lisa kaalu" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"/>
                     <Entry x:Name="weightEntry" Placeholder="Kaal" Keyboard="Numeric" TextColor="Black"/>
-                    <Button Text="Сохранить" Clicked="SaveButton_Clicked" x:Name="saveButton" />
-                    <Button Text="Удалить всё" Clicked="DeleteButton_Clicked" x:Name="delButton" />
+                    <Button Text="Salvesta" Clicked="SaveButton_Clicked" x:Name="saveButton" />
+                    <Button Text="Kustuta kõik" Clicked="DeleteButton_Clicked" x:Name="delButton" />
                 </StackLayout>
             </StackLayout>
         </ScrollView>
