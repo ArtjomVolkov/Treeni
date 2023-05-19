@@ -75,6 +75,9 @@ namespace Treeni.Views
             StartBtn.IsEnabled = true;
             CurTime = exerciseTimer;
             TimerLabel.Text = CurTime.ToString(@"mm\:ss");
+            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            player.Load("bud.mp3");
+            player.Stop();
         }
 
         private async void NextExercise()
@@ -88,7 +91,7 @@ namespace Treeni.Views
                 timer = false;
                 curExer = 0;
                 await DisplayAlert("Palju õnne!", "Olete kõik harjutused täitnud.", "OK");
-                int Kaal = duraction * 4;
+                int Kaal = duraction * 7;
                 int Trennid = 1;
                 Tren exercise = new Tren
                 {
@@ -112,6 +115,7 @@ namespace Treeni.Views
                     var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
                     player.Load("bud.mp3");
                     player.Play();
+                    StartBtn.IsEnabled = true;
                 }
             }
 

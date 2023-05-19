@@ -52,7 +52,7 @@ namespace Treeni
 
         private void UpdateExerciseValues()
         {
-            // Выбираем все записи из таблицы Tren в базе данных
+            // Выписываем все записи из таблицы Tren в базе данных
             List<Tren> exercises = App.Database.GetAllExercises();
 
             // Отображаем значения treenid, kaal и minutes на странице

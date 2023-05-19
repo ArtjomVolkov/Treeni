@@ -20,8 +20,6 @@
                 <Label Text="Birthday" />
                 <DatePicker x:Name="birthdayDatePicker" />
 
-                <Label Text="Rating (1-5)" />
-
                 <Button Text="Privacy Policy" Clicked="OnPrivacyPolicyClicked" />
 
                 <Button Text="Save" Clicked="OnSaveClicked" />

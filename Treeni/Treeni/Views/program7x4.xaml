@@ -6,30 +6,7 @@
         <ScrollView>
             <StackLayout x:Name="stackLayout" BackgroundColor="White">
                 <Label Text="Kogu keha programm 7x4" FontFamily="Sigmar.ttf#Sigmar" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Title"/>
-                <Frame BorderColor="Black" Padding="10" Margin="5">
-                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" HeightRequest="250">
-                        <Label Text="Esmaspäev"></Label>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Image  Aspect="AspectFit" Source="monday.png" Grid.Column="0" Grid.Row="0"
-                                        Margin="0,20,0,0" WidthRequest="80" HeightRequest="50"/>
-                            <Image  Aspect="AspectFit" Source="tuesday.png" Grid.Column="1" Grid.Row="0"
-                                        Margin="0,20,0,0" WidthRequest="80" HeightRequest="50"/>
-                            <Image  Aspect="AspectFit" Source="wensday.png" Grid.Column="2" Grid.Row="0"
-                                        Margin="0,20,0,0" WidthRequest="80" HeightRequest="50"/>
-                            <Image  Aspect="AspectFit" Source="neljapaev.png" Grid.Column="3" Grid.Row="0"
-                                        Margin="0,20,0,0" WidthRequest="80" HeightRequest="50"/>
-                            <Image  Aspect="AspectFit" Source="reede.png" Grid.Column="4" Grid.Row="0"
-                                        Margin="0,20,0,0" WidthRequest="80" HeightRequest="50"/>
-                            <Image  Aspect="AspectFit" Source="laupaev.png" Grid.Column="0" Grid.Row="1"
-                                        Margin="0,20,0,0" WidthRequest="80" HeightRequest="50"/>
-                            <Image  Aspect="AspectFit" Source="puhapaev.png" Grid.Column="1" Grid.Row="1"
-                                        Margin="0,20,0,0" WidthRequest="80" HeightRequest="50"/>
-                        </Grid>
-                    </StackLayout>
-                </Frame>
+                
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

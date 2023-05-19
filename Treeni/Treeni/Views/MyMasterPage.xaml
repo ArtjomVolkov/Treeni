@@ -11,9 +11,8 @@
                         <Button x:Name="home" Background="White" Text="Koju" Clicked="home_Clicked" TextColor="Black"/>
                         <Button x:Name="aruanne" Background="White" CornerRadius="60" Clicked="aruanne_Clicked" Text="Aruanne" TextColor="Black"/>
                         <Button x:Name="seaded" Background="White" CornerRadius="60" Text="Seaded" Clicked="seaded_Clicked" TextColor="Black"/>
-                        <Button x:Name="youtube" Background="White" CornerRadius="60" Text="Youtube" Clicked="youtube_Clicked" TextColor="Black"/>
-                        <Button x:Name="clearDB" Background="White" CornerRadius="60" Text="Kustuta Database" Clicked="ClearDB_Clicked" TextColor="Black"/>
-                    </StackLayout>
+                <Button x:Name="youtube" Background="White" CornerRadius="60" Text="Youtube" Clicked="youtube_Clicked" TextColor="Black"/>
+            </StackLayout>
                 </ContentPage>
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>

@@ -75,6 +75,9 @@ namespace Treeni.Views
             StartBtn.IsEnabled = true;
             CurTime = exerciseTimer;
             TimerLabel.Text = CurTime.ToString(@"mm\:ss");
+            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            player.Load("bud.mp3");
+            player.Stop();
         }
 
         private async void NextExercise()
@@ -112,6 +115,7 @@ namespace Treeni.Views
                     var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
                     player.Load("bud.mp3");
                     player.Play();
+                    StartBtn.IsEnabled = true;
                 }
             }
 

@@ -20,11 +20,6 @@ namespace Treeni.Views
             userSettings = new UserSettings();
             OnAppearing();
         }
-        private void ClearDB_Clicked(object sender, EventArgs e)
-        {
-            App.Database.ClearDatabase();
-            DisplayAlert("Info", "Database kustatud", "OK");
-        }
         protected override void OnAppearing()
         {
             string nimid = userSettings.Name;
