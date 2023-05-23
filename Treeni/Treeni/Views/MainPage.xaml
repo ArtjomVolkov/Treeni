@@ -4,18 +4,14 @@
              x:Class="Treeni.MainPage">
     <ContentPage.Content>
         <ScrollView>
-            <Grid>
+            <Grid VerticalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="340" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="70" />
                 </Grid.RowDefinitions>
-
-                <StackLayout Grid.Row="0" Margin="10" BackgroundColor="White">
+                <StackLayout Grid.Row="0">
                     <Label Text="TREENI KODUS" FontSize="Title" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
-                </StackLayout>
-                <StackLayout Grid.Row="1" Padding="2" BackgroundColor="SkyBlue">
                     <Grid ColumnDefinitions="1*,1*,1*">
                         <Label Text="Treenid" Grid.Column="0" Grid.Row="0" HeightRequest="40" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
                         <Label Text="Kaloreid" Grid.Column="1" Grid.Row="0" HeightRequest="40" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
@@ -36,13 +32,7 @@
                         </Frame>
                     </Grid>
                 </StackLayout>
-                <StackLayout Grid.Row="2" Padding="4" BackgroundColor="White">
-                    <Label Text="Kogu keha programm 7x4" FontSize="Medium" FontFamily="Sigmar.ttf#Sigmar"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
-                    <Image x:Name="program7x4" Source="program7x4.jpg" HeightRequest="170" WidthRequest="300" Opacity="0.8" Grid.Column="0" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                        </Image.GestureRecognizers>
-                    </Image>
+                <StackLayout Grid.Row="1" Padding="4" BackgroundColor="White">
                     <Label Text="Kõhulihaste treening" FontSize="Medium" FontFamily="Sigmar.ttf#Sigmar"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
                     <Image x:Name="Plank" Source="plank.jpg" HeightRequest="170" WidthRequest="300" Opacity="0.8" Grid.Column="1" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
                         <Image.GestureRecognizers>
@@ -50,31 +40,37 @@
                         </Image.GestureRecognizers>
                     </Image>
                     <Label Text="Rindkere treening" FontSize="Medium" FontFamily="Sigmar.ttf#Sigmar"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
-                    <Image x:Name="Grud" Source="grud.jpg" HeightRequest="170" WidthRequest="300" Opacity="0.8" Grid.Column="2" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image x:Name="Grud" Source="grud.jpg" HeightRequest="170" WidthRequest="300" Opacity="0.8" Grid.Column="1" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Grud_Dc"/>
                         </Image.GestureRecognizers>
                     </Image>
                     <Label Text="Käte treening" FontSize="Medium" FontFamily="Sigmar.ttf#Sigmar" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
-                    <Image x:Name="Ruki" Source="ruki.jpg" HeightRequest="170" WidthRequest="300" Opacity="0.8" Grid.Column="3" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image x:Name="Ruki" Source="ruki.jpg" HeightRequest="170" WidthRequest="300" Opacity="0.8" Grid.Column="2" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Ruki_Dc"/>
                         </Image.GestureRecognizers>
                     </Image>
                     <Label Text="Jalgade treening" FontSize="Medium" FontFamily="Sigmar.ttf#Sigmar" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
-                    <Image x:Name="Nogi" Source="nogi.jpg" HeightRequest="200" WidthRequest="300" Opacity="0.8" Grid.Column="4" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image x:Name="Nogi" Source="nogi.jpg" HeightRequest="200" WidthRequest="300" Opacity="0.8" Grid.Column="3" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Nogi_Dc"/>
                         </Image.GestureRecognizers>
                     </Image>
                     <Label Text="Õlgade treening" FontSize="Medium" FontFamily="Sigmar.ttf#Sigmar" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
-                    <Image x:Name="Ple4i" Source="ple4i.jpg" HeightRequest="200" WidthRequest="300" Opacity="0.8" Grid.Column="5" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image x:Name="Ple4i" Source="ple4i.jpg" HeightRequest="200" WidthRequest="300" Opacity="0.8" Grid.Column="4" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Ple4i_DC"/>
                         </Image.GestureRecognizers>
                     </Image>
+                    <Label Text="Kogu keha programm 7x4" FontSize="Medium" FontFamily="Sigmar.ttf#Sigmar"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                    <Image x:Name="program7x4" Source="program7x4.jpg" HeightRequest="170" WidthRequest="300" Opacity="0.8" Grid.Column="5" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
                 </StackLayout>
-                <StackLayout Grid.Row="3" Padding="4" >
+                <StackLayout Grid.Row="2" Padding="4" >
                     <Button x:Name="clearDB" Background="Gray" CornerRadius="60" Text="Kustuta Database" Clicked="ClearDB_Clicked"/>
                 </StackLayout>
             </Grid>

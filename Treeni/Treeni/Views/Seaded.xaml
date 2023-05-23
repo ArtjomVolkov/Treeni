@@ -6,10 +6,10 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label Text="Your Name" />
-                <Entry x:Name="nameEntry" />
+                <Label Text="Sinu nimi" />
+                <Entry x:Name="nameEntry" MaxLength="10"/>
 
-                <Label Text="Gender" />
+                <Label Text="Sugu" />
                 <Picker x:Name="genderPicker">
                     <Picker.Items>
                         <x:String>Male</x:String>
@@ -17,8 +17,14 @@
                     </Picker.Items>
                 </Picker>
 
-                <Label Text="Birthday" />
+                <Label Text="Sünnipäev" />
                 <DatePicker x:Name="birthdayDatePicker" />
+
+                <Label Text="Email" />
+                <Entry x:Name="emailEntry" MaxLength="35" Keyboard="Email"/>
+
+                <Label Text="Telefon" />
+                <Entry x:Name="telEntry" MaxLength="35" Keyboard="Telephone"/>
 
                 <Button Text="Privacy Policy" Clicked="OnPrivacyPolicyClicked" />
 

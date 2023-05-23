@@ -14,12 +14,16 @@ namespace Treeni.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Seaded : ContentPage
     {
-        private UserSettings userSettings;
 
         public Seaded()
         {
             InitializeComponent();
 
+            UpdatePageData();
+        }
+
+        private async void UpdatePageData()
+        {
             // Load user settings from SQLite database
             List<UserSettings> userSettingsList = App.Databases.GetUserSettingsAsync();
             UserSettings userSettings = null;
@@ -36,15 +40,19 @@ namespace Treeni.Views
             nameEntry.Text = userSettings.Name;
             genderPicker.SelectedItem = userSettings.Gender;
             birthdayDatePicker.Date = userSettings.Birthday;
+            emailEntry.Text = userSettings.Email;
+            telEntry.Text = userSettings.Telefon;
         }
+
 
         private async void OnPrivacyPolicyClicked(object sender, EventArgs e)
         {
             //модальное окно
             var popup = new PopupPage();
-            popup.WidthRequest = 300;
+            popup.WidthRequest = 100;
             popup.BackgroundColor = Color.FromHex("#80000000");
             popup.HasSystemPadding = true;
+            
             //stacklayout
             var layout = new StackLayout();
             layout.BackgroundColor = Color.White;
@@ -56,6 +64,8 @@ namespace Treeni.Views
             titleLabel.Text = "Meie rakenduse andmete privaatsus ja turvalisus on meile väga olulised. Selles dokumendis kirjeldame, milliseid andmeid me kogume, kuidas me neid kasutame ja kuidas me neid kaitseme.\r\n\r\nKogumine:\r\nKogume ainult vajalikke andmeid, mille esitate vabatahtlikult meie rakenduse kasutamisel. Need andmed võivad sisaldada teie nime, sugu, sünnikuupäeva ja meie rakenduse hinnanguid. Me ei kogu mingeid isikuandmeid, välja arvatud need, mida te meile esitate.\r\n\r\nAndmete kasutamine:\r\nMe kasutame kogutud andmeid ainult eesmärkidel, mis on seotud meie rakenduse täiustamisega ja teile parima võimaliku kasutuskogemuse pakkumisega. Me ei jaga, müü ega vaheta teie isikuandmeid kolmandate osapoolte ettevõtetega.\r\n\r\nAndmekaitse:\r\nMe võtame kõik vajalikud meetmed, et kaitsta teie andmeid volitamata juurdepääsu, muutmise, avalikustamise või hävitamise eest. Kasutame kaasaegseid krüptimismeetodeid ja andmete salvestamist turvalistes serverites.\r\n\r\nPrivaatsuspoliitika muudatused:\r\nMe võime aeg-ajalt oma privaatsuspoliitikat muuta. Juhul, kui teeme mingeid muudatusi, teavitame teid sellest, avaldades uuendatud privaatsuspoliitika meie rakenduses.\r\n\r\nKui teil on küsimusi meie privaatsuspoliitika kohta, võtke meiega ühendust.";
             titleLabel.TextColor = Color.Black;
             titleLabel.FontSize = 20;
+            titleLabel.WidthRequest = 250;
+            titleLabel.HeightRequest = 500;
             titleLabel.HorizontalOptions = LayoutOptions.Center;
             layout.Children.Add(titleLabel);
 
@@ -63,18 +73,22 @@ namespace Treeni.Views
             await Navigation.PushPopupAsync(popup);
         }
 
-        private void OnSaveClicked(object sender, EventArgs e)
+        private async void OnSaveClicked(object sender, EventArgs e)
         {
+            
             // Update user settings with the data entered on the page
             UserSettings userSettings = new UserSettings();
             userSettings.Name = nameEntry.Text;
             userSettings.Gender = genderPicker.SelectedItem as string;
             userSettings.Birthday = birthdayDatePicker.Date;
-
+            userSettings.Email = emailEntry.Text;
+            userSettings.Telefon = telEntry.Text;
+            App.Databases.DeleteUserSettings();
             // Save user settings to SQLite database
             App.Databases.SaveUserSettingsAsync(userSettings);
 
-            DisplayAlert("Saved", "Your settings have been saved.", "OK");
+            await DisplayAlert("Saved", "Your settings have been saved.", "OK");
+            UpdatePageData();
         }
     }
 }

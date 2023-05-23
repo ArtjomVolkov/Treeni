@@ -23,5 +23,10 @@ namespace Treeni.Models
         {
             databases.Insert(userSettings);
         }
+        public void DeleteUserSettings()
+        {
+            databases.DropTable<UserSettings>();
+            databases.CreateTable<UserSettings>();
+        }
     }
 }

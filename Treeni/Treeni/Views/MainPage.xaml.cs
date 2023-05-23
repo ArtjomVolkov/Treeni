@@ -77,12 +77,14 @@ namespace Treeni
             popup.WidthRequest = 300;
             popup.BackgroundColor = Color.FromHex("#80000000");
             popup.HasSystemPadding = true;
+
             //stacklayout
             var layout = new StackLayout();
             layout.BackgroundColor = Color.White;
             layout.VerticalOptions = LayoutOptions.CenterAndExpand;
             layout.HorizontalOptions = LayoutOptions.CenterAndExpand;
             layout.Padding = new Thickness(20);
+
             //lbl
             var titleLabel = new Label();
             titleLabel.Text = "Seadke oma nädala eesmärk";
@@ -90,14 +92,18 @@ namespace Treeni
             titleLabel.FontSize = 20;
             titleLabel.HorizontalOptions = LayoutOptions.Center;
 
-            var goalEntry = new Entry();
-            goalEntry.TextColor = Color.Black;
+            var goalPicker = new Picker();
+            goalPicker.Items.Add("Kõhulihaste treening");
+            goalPicker.Items.Add("Rindkere treening");
+            goalPicker.Items.Add("Käte treening");
+            goalPicker.Items.Add("Jalgade treening");
+            goalPicker.Items.Add("Õlgade treening");
 
-            // Получение цели и вывод ее в Label
+            // Получение цели и вывод ее в Picker
             if (App.Current.Properties.ContainsKey("Goal"))
             {
                 var savedGoal = (string)App.Current.Properties["Goal"];
-                goalEntry.Text = savedGoal;
+                goalPicker.SelectedItem = savedGoal;
             }
 
             var saveButton = new Button();
@@ -105,37 +111,24 @@ namespace Treeni
             saveButton.BackgroundColor = Color.White;
             saveButton.TextColor = Color.Black;
             saveButton.Margin = new Thickness(0, 20, 0, 0);
-            saveButton.Clicked += async (s, e) =>
+            saveButton.Clicked += (s, e) =>
             {
-                // Сохранение цели
-                App.Current.Properties["Goal"] = goalEntry.Text;
-                await App.Current.SavePropertiesAsync();
-                await PopupNavigation.Instance.PopAsync();
-            };
+                // Сохранение выбранной цели
+                var selectedGoal = goalPicker.SelectedItem.ToString();
+                App.Current.Properties["Goal"] = selectedGoal;
+                App.Current.SavePropertiesAsync();
 
-            var deleteButton = new Button();
-            deleteButton.Text = "Kustuta eesmärk";
-            deleteButton.BackgroundColor = Color.White;
-            deleteButton.TextColor = Color.Black;
-            deleteButton.Margin = new Thickness(0, 10, 0, 0);
-            deleteButton.Clicked += async (s, e) =>
-            {
-                // Удаление цели
-                if (App.Current.Properties.ContainsKey("Goal"))
-                {
-                    App.Current.Properties.Remove("Goal");
-                    await App.Current.SavePropertiesAsync();
-                }
-                await PopupNavigation.Instance.PopAsync();
+                // Закрытие модального окна
+                PopupNavigation.Instance.PopAsync();
             };
 
             layout.Children.Add(titleLabel);
-            layout.Children.Add(goalEntry);
+            layout.Children.Add(goalPicker);
             layout.Children.Add(saveButton);
-            layout.Children.Add(deleteButton);
 
             popup.Content = layout;
-            await Navigation.PushPopupAsync(popup);
+
+            await PopupNavigation.Instance.PushAsync(popup);
         }
         protected override void OnAppearing()
         {

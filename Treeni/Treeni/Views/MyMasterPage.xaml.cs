@@ -22,26 +22,30 @@ namespace Treeni.Views
         }
         protected override void OnAppearing()
         {
-            string nimid = userSettings.Name;
+            List<UserSettings> userSettingsList = App.Databases.GetUserSettingsAsync();
+            UserSettings userSettings = userSettingsList.FirstOrDefault();
             base.OnAppearing();
             var Time = DateTime.Now.TimeOfDay;
-            if (Time < new TimeSpan(12, 0, 0))
+            Console.WriteLine(Time.ToString());
+            if (userSettings != null)
             {
-                tere.Text = "Tere hommikust";
+                if (Time < new TimeSpan(11, 0, 0))
+                {
+                    tere.Text = "Tere hommikust, " + userSettings.Name;
+                }
+                else if (Time < new TimeSpan(17, 0, 0))
+                {
+                    tere.Text = "Tere päevast, " + userSettings.Name;
+                }
+                else if (Time < new TimeSpan(6, 0, 0))
+                {
+                    tere.Text = "Tere õhtust, " + userSettings.Name;
+                }
+                else
+                {
+                    tere.Text = "Tere ööst, " + userSettings.Name;
+                }
             }
-            else if(Time < new TimeSpan(18, 0, 0))
-            {
-                tere.Text = "Tere päevast";
-            }
-            else
-            {
-                tere.Text = "Tere õhtust";
-            }
-        }
-
-        private async void home_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopAsync();
         }
 
         private async void aruanne_Clicked(object sender, EventArgs e)

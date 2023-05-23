@@ -7,9 +7,8 @@
         <ContentPage Title="Menu">
                     <StackLayout Background="White">
                         <Label x:Name="tere" FontSize="Title" Margin="30" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
-                        <Image Source="sportlane.jpg" WidthRequest="100" HeightRequest="100" VerticalOptions="Center" HorizontalOptions="Center"  Margin="10"/>
-                        <Button x:Name="home" Background="White" Text="Koju" Clicked="home_Clicked" TextColor="Black"/>
-                        <Button x:Name="aruanne" Background="White" CornerRadius="60" Clicked="aruanne_Clicked" Text="Aruanne" TextColor="Black"/>
+                <Image Source="sportlane.jpg" WidthRequest="100" HeightRequest="100" VerticalOptions="Center" HorizontalOptions="Center"  Margin="10"/>
+                <Button x:Name="aruanne" Background="White" CornerRadius="60" Clicked="aruanne_Clicked" Text="Aruanne" TextColor="Black"/>
                         <Button x:Name="seaded" Background="White" CornerRadius="60" Text="Seaded" Clicked="seaded_Clicked" TextColor="Black"/>
                 <Button x:Name="youtube" Background="White" CornerRadius="60" Text="Youtube" Clicked="youtube_Clicked" TextColor="Black"/>
             </StackLayout>
