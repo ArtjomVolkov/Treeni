@@ -2,6 +2,27 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Treeni.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Image">
+                <Setter Property="HeightRequest" Value="170" />
+                <Setter Property="WidthRequest" Value="300" />
+                <Setter Property="Opacity" Value="0.8" />
+                <Setter Property="VerticalOptions" Value="EndAndExpand" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="Background" Value="#3498db" />
+                <Setter Property="CornerRadius" Value="60" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="Arial" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
             <Grid VerticalOptions="FillAndExpand">
@@ -10,60 +31,60 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <StackLayout Grid.Row="0">
-                    <Label Text="TREENI KODUS" FontSize="Title" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                <StackLayout Grid.Row="0" BackgroundColor="#3498db">
+                    <Label Text="TREENI KODUS" FontSize="Title" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White"/>
                     <Grid ColumnDefinitions="1*,1*,1*">
-                        <Label Text="Treenid" Grid.Column="0" Grid.Row="0" HeightRequest="40" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
-                        <Label Text="Kaloreid" Grid.Column="1" Grid.Row="0" HeightRequest="40" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
-                        <Label Text="Minutit" Grid.Column="2" Grid.Row="0" HeightRequest="40" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                        <Label Text="Treenid" Grid.Column="0" Grid.Row="0" HeightRequest="40" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+                        <Label Text="Kaloreid" Grid.Column="1" Grid.Row="0" HeightRequest="40" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+                        <Label Text="Minutit" Grid.Column="2" Grid.Row="0" HeightRequest="40" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White"/>
                     </Grid>
                     <Grid ColumnDefinitions="1*,1*,1*">
-                        <Label Text="{Binding Trennid}" x:Name="TrennidLabel" HeightRequest="40" Grid.Column="0" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
-                        <Label Text="{Binding Kaal}" x:Name="KaalLabel"  HeightRequest="40" Grid.Column="1" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
-                        <Label Text="{Binding Minutes}" x:Name="MinutesLabel" HeightRequest="40" Grid.Column="2" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                        <Label Text="{Binding Trennid}" x:Name="TrennidLabel" HeightRequest="40" Grid.Column="0" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+                        <Label Text="{Binding Kaal}" x:Name="KaalLabel"  HeightRequest="40" Grid.Column="1" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+                        <Label Text="{Binding Minutes}" x:Name="MinutesLabel" HeightRequest="40" Grid.Column="2" Grid.Row="0" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White"/>
                     </Grid>
                     <Grid ColumnDefinitions="1*">
-                        <Frame Grid.Row="0" CornerRadius="19" OutlineColor="Black" BackgroundColor="SkyBlue" Padding="20" Margin="2">
+                        <Frame Grid.Row="0" CornerRadius="19" OutlineColor="black" BackgroundColor="#3498db" Padding="20" Margin="2">
                             <StackLayout>
-                                <Label Text="Nädala eesmärk" FontSize="Title" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
-                                <Label Text="Parimate tulemuste saavutamiseks seadke iganädalased eesmärgid" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
-                                <Button Text="Eesmärk" Background="Gray" Padding="10" CornerRadius="60" Clicked="OnGoalButtonClicked"/>
+                                <Label Text="Nädala eesmärk" FontSize="Title" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+                                <Label Text="Parimate tulemuste saavutamiseks seadke iganädalased eesmärgid" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+                                <Button Text="Eesmärk" BackgroundColor="#3498db" TextColor="White" Padding="10" CornerRadius="60" Clicked="OnGoalButtonClicked"/>
                             </StackLayout>
                         </Frame>
                     </Grid>
                 </StackLayout>
                 <StackLayout Grid.Row="1" Padding="4" BackgroundColor="White">
-                    <Label Text="Kõhulihaste treening" FontSize="Medium" FontFamily="Sigmar.ttf#Sigmar"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                    <Label Text="Kõhulihaste treening" FontSize="Medium" FontFamily="Arial"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
                     <Image x:Name="Plank" Source="plank.jpg" HeightRequest="170" WidthRequest="300" Opacity="0.8" Grid.Column="1" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Plank_Dc"/>
                         </Image.GestureRecognizers>
                     </Image>
-                    <Label Text="Rindkere treening" FontSize="Medium" FontFamily="Sigmar.ttf#Sigmar"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                    <Label Text="Rindkere treening" FontSize="Medium" FontFamily="Arial"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
                     <Image x:Name="Grud" Source="grud.jpg" HeightRequest="170" WidthRequest="300" Opacity="0.8" Grid.Column="1" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Grud_Dc"/>
                         </Image.GestureRecognizers>
                     </Image>
-                    <Label Text="Käte treening" FontSize="Medium" FontFamily="Sigmar.ttf#Sigmar" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                    <Label Text="Käte treening" FontSize="Medium" FontFamily="Arial" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
                     <Image x:Name="Ruki" Source="ruki.jpg" HeightRequest="170" WidthRequest="300" Opacity="0.8" Grid.Column="2" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Ruki_Dc"/>
                         </Image.GestureRecognizers>
                     </Image>
-                    <Label Text="Jalgade treening" FontSize="Medium" FontFamily="Sigmar.ttf#Sigmar" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                    <Label Text="Jalgade treening" FontSize="Medium" FontFamily="Arial" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
                     <Image x:Name="Nogi" Source="nogi.jpg" HeightRequest="200" WidthRequest="300" Opacity="0.8" Grid.Column="3" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Nogi_Dc"/>
                         </Image.GestureRecognizers>
                     </Image>
-                    <Label Text="Õlgade treening" FontSize="Medium" FontFamily="Sigmar.ttf#Sigmar" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                    <Label Text="Õlgade treening" FontSize="Medium" FontFamily="Arial" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
                     <Image x:Name="Ple4i" Source="ple4i.jpg" HeightRequest="200" WidthRequest="300" Opacity="0.8" Grid.Column="4" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Ple4i_DC"/>
                         </Image.GestureRecognizers>
                     </Image>
-                    <Label Text="Kogu keha programm 7x4" FontSize="Medium" FontFamily="Sigmar.ttf#Sigmar"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                    <Label Text="Kogu keha programm 7x4" FontSize="Medium" FontFamily="Arial"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
                     <Image x:Name="program7x4" Source="program7x4.jpg" HeightRequest="170" WidthRequest="300" Opacity="0.8" Grid.Column="5" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
@@ -71,9 +92,9 @@
                     </Image>
                 </StackLayout>
                 <StackLayout Grid.Row="2" Padding="4" >
-                    <Button x:Name="clearDB" Background="Gray" CornerRadius="60" Text="Kustuta Database" Clicked="ClearDB_Clicked"/>
+                    <Button x:Name="clearDB" BackgroundColor="#e74c3c" TextColor="White" CornerRadius="60" Text="Kustuta Database" Clicked="ClearDB_Clicked"/>
                 </StackLayout>
             </Grid>
         </ScrollView>
-        </ContentPage.Content>
+    </ContentPage.Content>
 </ContentPage>

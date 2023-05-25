@@ -98,6 +98,7 @@ namespace Treeni
             goalPicker.Items.Add("Käte treening");
             goalPicker.Items.Add("Jalgade treening");
             goalPicker.Items.Add("Õlgade treening");
+            goalPicker.TextColor = Color.Black;
 
             // Получение цели и вывод ее в Picker
             if (App.Current.Properties.ContainsKey("Goal"))
