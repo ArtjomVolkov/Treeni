@@ -103,8 +103,8 @@ namespace Treeni.Views
             if (tappedImage.BindingContext is int count)
             {
                 treeningsCount = count;
-                string message = $"Достижение получено за {treeningsCount} выполненных тренировок.";
-                DisplayAlert("Достижение", message, "ОК");
+                string message = $"Teenitud saavutus {treeningsCount} lõpetatud treeningu eest.";
+                DisplayAlert("Saavutus", message, "ОК");
             }
         }
     }
