@@ -7,6 +7,24 @@
         <ContentPage Title="Menu">
                     <StackLayout Background="White">
                         <Label x:Name="tere" FontSize="Title" Margin="30" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
+                <Label x:Name="saavutusi" Text="Saavutusi" FontSize="Body" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image x:Name="saavutus1" WidthRequest="60" HeightRequest="60" BindingContext="5">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSaavutusTapped" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image x:Name="saavutus2" WidthRequest="60" HeightRequest="60" BindingContext="10">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSaavutusTapped" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image x:Name="saavutus3" WidthRequest="60" HeightRequest="60" BindingContext="15">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSaavutusTapped" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
                 <Image Source="sportlane.jpg" WidthRequest="100" HeightRequest="100" VerticalOptions="Center" HorizontalOptions="Center"  Margin="10"/>
                 <Button x:Name="aruanne" Background="White" CornerRadius="60" Clicked="aruanne_Clicked" Text="Aruanne" TextColor="Black"/>
                         <Button x:Name="seaded" Background="White" CornerRadius="60" Text="Seaded" Clicked="seaded_Clicked" TextColor="Black"/>

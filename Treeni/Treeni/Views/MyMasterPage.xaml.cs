@@ -22,9 +22,43 @@ namespace Treeni.Views
         }
         protected override void OnAppearing()
         {
+            base.OnAppearing();
             List<UserSettings> userSettingsList = App.Databases.GetUserSettingsAsync();
             UserSettings userSettings = userSettingsList.FirstOrDefault();
-            base.OnAppearing();
+            List<Tren> exercises = App.Database.GetAllExercises();
+            int totalTrennid = 0;
+            foreach (Tren exercise in exercises)
+            {
+                totalTrennid += exercise.Trennid;
+            }
+            Console.WriteLine("Time: " + totalTrennid + " minutes");
+            saavutus1.BindingContext = 5;
+            saavutus2.BindingContext = 10;
+            saavutus3.BindingContext = 15;
+            if (totalTrennid >= 5)
+            {
+                saavutus1.Source = "medal3.png";
+            }
+            else if (totalTrennid < 5)
+            {
+                saavutus1.Source = "";
+            }
+            if (totalTrennid >= 10)
+            {
+                saavutus2.Source = "medal2.png";
+            }
+            else if (totalTrennid < 10)
+            {
+                saavutus2.Source = "";
+            }
+            if (totalTrennid >= 15)
+            {
+                saavutus3.Source = "medal4.png";
+            }
+            else if (totalTrennid < 15)
+            {
+                saavutus3.Source = "";
+            }
             var Time = DateTime.Now.TimeOfDay;
             Console.WriteLine(Time.ToString());
             if (userSettings != null)
@@ -61,6 +95,17 @@ namespace Treeni.Views
         private async void seaded_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Seaded());
+        }
+        private void OnSaavutusTapped(object sender, EventArgs e)
+        {
+            Image tappedImage = (Image)sender;
+            int treeningsCount;
+            if (tappedImage.BindingContext is int count)
+            {
+                treeningsCount = count;
+                string message = $"Достижение получено за {treeningsCount} выполненных тренировок.";
+                DisplayAlert("Достижение", message, "ОК");
+            }
         }
     }
 }
