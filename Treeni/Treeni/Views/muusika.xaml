@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Treeni.Views.muusika">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Заголовок -->
+            <Label Text="Your Workout Playlists"
+                   FontSize="Title"
+                   VerticalOptions="Center" HorizontalOptions="Center" Margin="20" />
+
+            <!-- Список плейлистов -->
+            <ListView x:Name="PlaylistListView"
+                      Grid.Row="1"
+                      Margin="10,0,10,10"
+                      SelectionMode="None"
+                      ItemTapped="PlaySong"
+                      SeparatorVisibility="None"
+                      RowHeight="300">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <!-- Название песни -->
+                                <Label Text="{Binding Title}"
+                                       VerticalOptions="Center"
+                                       TextColor="#FFFFFF"
+                                       HorizontalOptions="Center" 
+                                       FontSize="22"/>
+                                <!-- Обложка песни -->
+                                <Image Source="{Binding CoverImage}" 
+                                       WidthRequest="300" 
+                                       HeightRequest="300"
+                                       Grid.Row="1"
+                                       Aspect="AspectFill"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!-- Кнопка паузы/возобновления воспроизведения -->
+            <Button Text="Pause/Resume"
+                    Grid.Row="2"
+                    Clicked="PauseSong"
+                    HorizontalOptions="Center"
+                    Margin="0,20,0,20"
+                    BackgroundColor="#1DB954"
+                    TextColor="#FFFFFF"
+                    CornerRadius="20"
+                    WidthRequest="200"
+                    HeightRequest="40" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -139,7 +139,7 @@ namespace Treeni
         private void ClearDB_Clicked(object sender, EventArgs e)
         {
             App.Database.ClearDatabase();
-            DisplayAlert("Info", "Database kustatud", "OK");
+            DisplayAlert("Info", "Puhastatud ajalugu", "OK");
             TrennidLabel.Text = "0";
             MinutesLabel.Text = "0";
             KaalLabel.Text = "0";

@@ -25,10 +25,28 @@
                         </Image.GestureRecognizers>
                     </Image>
                 </StackLayout>
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image x:Name="saavutus4" WidthRequest="60" HeightRequest="60" BindingContext="100">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSaavutusTapped2" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image x:Name="saavutus5" WidthRequest="60" HeightRequest="60" BindingContext="200">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSaavutusTapped2" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image x:Name="saavutus6" WidthRequest="60" HeightRequest="60" BindingContext="300">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSaavutusTapped2" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
                 <Image Source="sportlane.jpg" WidthRequest="100" HeightRequest="100" VerticalOptions="Center" HorizontalOptions="Center"  Margin="10"/>
                 <Button x:Name="aruanne" Background="White" CornerRadius="60" Clicked="aruanne_Clicked" Text="Aruanne" TextColor="Black"/>
                         <Button x:Name="seaded" Background="White" CornerRadius="60" Text="Seaded" Clicked="seaded_Clicked" TextColor="Black"/>
                 <Button x:Name="youtube" Background="White" CornerRadius="60" Text="Youtube" Clicked="youtube_Clicked" TextColor="Black"/>
+                <Button x:Name="music" Background="White" CornerRadius="60" Text="Muusika" Clicked="music_Clicked" TextColor="Black"/>
             </StackLayout>
                 </ContentPage>
     </MasterDetailPage.Master>
