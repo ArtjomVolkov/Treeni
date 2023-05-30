@@ -83,6 +83,9 @@ namespace Treeni.Views
 
         private async void NextExercise()
         {
+            timer = false;
+            StartBtn.IsEnabled = true;
+            TimerLabel.Text = CurTime.ToString(@"mm\:ss");
             var pageLeavingTime = DateTime.Now;
             duraction = (int)pageLeavingTime.Subtract(_pageTime).TotalSeconds;
             Console.WriteLine("Time: " + duraction + " minutes");

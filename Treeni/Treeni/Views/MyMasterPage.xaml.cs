@@ -107,18 +107,34 @@ namespace Treeni.Views
                 if (Time < new TimeSpan(11, 0, 0))
                 {
                     tere.Text = "Tere hommikust, " + userSettings.Name;
+                    if (userSettings.Name == "")
+                    {
+                        tere.Text = "Tere tulemast";
+                    }
                 }
                 else if (Time < new TimeSpan(17, 0, 0))
                 {
                     tere.Text = "Tere päevast, " + userSettings.Name;
+                    if (userSettings.Name == "")
+                    {
+                        tere.Text = "Tere tulemast";
+                    }
                 }
                 else if (Time < new TimeSpan(6, 0, 0))
                 {
                     tere.Text = "Tere õhtust, " + userSettings.Name;
+                    if (userSettings.Name == "")
+                    {
+                        tere.Text = "Tere tulemast";
+                    }
                 }
                 else
                 {
                     tere.Text = "Tere ööst, " + userSettings.Name;
+                    if (userSettings.Name == "")
+                    {
+                        tere.Text = "Tere tulemast";
+                    }
                 }
             }
         }
