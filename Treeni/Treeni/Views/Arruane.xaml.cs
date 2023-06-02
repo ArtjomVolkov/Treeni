@@ -34,7 +34,7 @@ namespace Treeni.Views
             }
 
             UpdateWeightChart();
-            await DisplayAlert("Juhised", "Valige kalendrist kuupäev ja sisestage oma kaal, seejärel klõpsake kaalukirje lisamiseks nuppu (Salvesta).\n!!TÄHTIS!! Kui teil on vaja valida mõni muu päev, peate oma esimese päeva tühistama ja määrama uue päeva", "OK");
+            await DisplayAlert("Juhised", "Valige kalendrist kuupäev ja sisestage oma kaal, seejärel klõpsake kaalukirje lisamiseks nuppu (Salvesta).\n!!TÄHTIS!!\nKui teil on vaja valida mõni muu päev, peate oma esimese päeva tühistama ja määrama uue päeva", "OK");
         }
 
         private void UpdateWeightChart()
