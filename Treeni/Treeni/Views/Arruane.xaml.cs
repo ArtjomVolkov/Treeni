@@ -22,9 +22,10 @@ namespace Treeni.Views
         {
             InitializeComponent();
         }
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
+
 
             if (Application.Current.Properties.ContainsKey("weightEntries"))
             {
@@ -33,6 +34,7 @@ namespace Treeni.Views
             }
 
             UpdateWeightChart();
+            await DisplayAlert("Juhised", "Valige kalendrist kuupäev ja sisestage oma kaal, seejärel klõpsake kaalukirje lisamiseks nuppu (Salvesta).\n!!TÄHTIS!! Kui teil on vaja valida mõni muu päev, peate oma esimese päeva tühistama ja määrama uue päeva", "OK");
         }
 
         private void UpdateWeightChart()

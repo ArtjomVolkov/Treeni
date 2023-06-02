@@ -26,7 +26,7 @@ namespace Treeni.Views
             ("Plangu tõstmine", "plangut.png", "Seadke oma küünarvartele planguasendisse. Tõstke üks käsi üles, hoides ülejäänud tilka käest kannani. Laske end selles asendis mõni sekund olla. Jätkake käte vaheldumisi 30 sekundit kuni minut.")
         };
 
-        private TimeSpan exerciseTimer = TimeSpan.FromSeconds(60);
+        private TimeSpan exerciseTimer = TimeSpan.FromMinutes(1);
         private TimeSpan CurTime = TimeSpan.Zero;
         private bool timer = false;
         public int duraction = 0;
@@ -35,7 +35,6 @@ namespace Treeni.Views
         {
             InitializeComponent();
             BindingContext = this;
-
             curExer = 0;
             ExerciseName.Text = _exercises[curExer].Item1;
             ExerciseImage.Source = ImageSource.FromFile(_exercises[curExer].Item2);
@@ -56,14 +55,14 @@ namespace Treeni.Views
             timer = true;
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
-                CurTime -= TimeSpan.FromSeconds(1);
-                TimerLabel.Text = CurTime.ToString(@"mm\:ss");
-
                 if (CurTime.TotalSeconds <= 0)
                 {
                     NextExercise();
                     return false;
                 }
+
+                CurTime -= TimeSpan.FromSeconds(1);
+                TimerLabel.Text = CurTime.ToString(@"mm\:ss");
 
                 return timer;
             });
@@ -73,12 +72,12 @@ namespace Treeni.Views
         private void EndTimerButton_Clicked(object sender, EventArgs e)
         {
             timer = false;
-            StartBtn.IsEnabled = true;
-            CurTime = exerciseTimer;
-            TimerLabel.Text = CurTime.ToString(@"mm\:ss");
             var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
             player.Load("bud.mp3");
             player.Stop();
+            CurTime = exerciseTimer;
+            TimerLabel.Text = CurTime.ToString(@"mm\:ss");
+            StartBtn.IsEnabled = true;
         }
 
         private async void NextExercise()

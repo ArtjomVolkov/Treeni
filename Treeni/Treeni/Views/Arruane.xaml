@@ -16,7 +16,9 @@
                 <!-- Форма для добавления нового веса -->
                 <StackLayout>
                     <Label Text="Lisa kaalu" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"/>
-                    <Entry x:Name="weightEntry" Placeholder="Kaal" Keyboard="Numeric" TextColor="Black"/>
+                    <Frame BorderColor="Black" HasShadow="False" Padding="1" BackgroundColor="Transparent">
+                        <Entry x:Name="weightEntry" Placeholder="Kaal" Keyboard="Numeric" TextColor="Black" />
+                    </Frame>
                     <Button Text="Salvesta" Clicked="SaveButton_Clicked" x:Name="saveButton" />
                     <Button Text="Kustuta kõik" Clicked="DeleteButton_Clicked" x:Name="delButton" />
                 </StackLayout>

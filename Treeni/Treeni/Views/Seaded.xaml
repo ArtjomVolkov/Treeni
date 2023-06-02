@@ -7,7 +7,7 @@
         <ScrollView>
             <StackLayout>
                 <Label Text="Sinu nimi" />
-                <Entry x:Name="nameEntry" MaxLength="10"/>
+                <Entry x:Name="nameEntry" MaxLength="10" TextChanged="nameEntry_TextChanged" Keyboard="Text"/>
 
                 <Label Text="Sugu" />
                 <Picker x:Name="genderPicker">
@@ -18,13 +18,13 @@
                 </Picker>
 
                 <Label Text="Sünnipäev" />
-                <DatePicker x:Name="birthdayDatePicker" />
+                <DatePicker x:Name="birthdayDatePicker"/>
 
                 <Label Text="Email" />
-                <Entry x:Name="emailEntry" MaxLength="35" Keyboard="Email"/>
+                <Entry x:Name="emailEntry" MaxLength="35" TextChanged="emailEntry_TextChanged" Keyboard="Email"/>
 
                 <Label Text="Telefon" />
-                <Entry x:Name="telEntry" MaxLength="35" Keyboard="Telephone"/>
+                <Entry x:Name="telEntry" MaxLength="35" TextChanged="telEntry_TextChanged" Keyboard="Telephone"/>
 
                 <Button Text="Privacy Policy" Clicked="OnPrivacyPolicyClicked" />
 

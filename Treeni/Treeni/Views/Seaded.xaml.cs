@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Treeni.Models;
 using Xamarin.Forms;
@@ -14,11 +15,11 @@ namespace Treeni.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Seaded : ContentPage
     {
-
+        
         public Seaded()
         {
             InitializeComponent();
-
+            birthdayDatePicker.MaximumDate = DateTime.Now;
             UpdatePageData();
         }
 
@@ -89,6 +90,33 @@ namespace Treeni.Views
 
             await DisplayAlert("Saved", "Your settings have been saved.", "OK");
             UpdatePageData();
+        }
+
+        private void nameEntry_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string newText = e.NewTextValue;
+            if (!Regex.IsMatch(newText, @"^[a-zA-Z]+$"))
+            {
+                nameEntry.Text = Regex.Replace(newText, @"[^a-zA-Z]", "");
+            }
+        }
+
+        private void emailEntry_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string newText = e.NewTextValue;
+            if (!Regex.IsMatch(newText, @"^[^\s@]+@[^\s@]+\.[^\s@]+$"))
+            {
+                emailEntry.Text = Regex.Replace(newText, @"[^a-zA-Z0-9@._-]", "");
+            }
+        }
+
+        private void telEntry_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string newText = e.NewTextValue;
+            if (!Regex.IsMatch(newText, @"^[0-9+]+$"))
+            {
+                telEntry.Text = Regex.Replace(newText, @"[^0-9+]", "");
+            }
         }
     }
 }
