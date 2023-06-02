@@ -55,33 +55,36 @@ namespace Treeni.Views
             timer = true;
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
-                CurTime -= TimeSpan.FromSeconds(1);
-                TimerLabel.Text = CurTime.ToString(@"mm\:ss");
-
                 if (CurTime.TotalSeconds <= 0)
                 {
                     NextExercise();
                     return false;
                 }
 
+                CurTime -= TimeSpan.FromSeconds(1);
+                TimerLabel.Text = CurTime.ToString(@"mm\:ss");
+
                 return timer;
             });
-            
+
         }
 
         private void EndTimerButton_Clicked(object sender, EventArgs e)
         {
             timer = false;
-            StartBtn.IsEnabled = true;
-            CurTime = exerciseTimer;
-            TimerLabel.Text = CurTime.ToString(@"mm\:ss");
             var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
             player.Load("bud.mp3");
             player.Stop();
+            CurTime = exerciseTimer;
+            TimerLabel.Text = CurTime.ToString(@"mm\:ss");
+            StartBtn.IsEnabled = true;
         }
 
         private async void NextExercise()
         {
+            timer = false;
+            StartBtn.IsEnabled = true;
+            TimerLabel.Text = CurTime.ToString(@"mm\:ss");
             var pageLeavingTime = DateTime.Now;
             duraction = (int)pageLeavingTime.Subtract(_pageTime).TotalSeconds;
             Console.WriteLine("Time: " + duraction + " minutes");
