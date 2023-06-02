@@ -118,6 +118,7 @@ namespace Treeni
                 var selectedGoal = goalPicker.SelectedItem.ToString();
                 App.Current.Properties["Goal"] = selectedGoal;
                 App.Current.SavePropertiesAsync();
+                eesmark_text.Text = selectedGoal;
 
                 // Закрытие модального окна
                 PopupNavigation.Instance.PopAsync();

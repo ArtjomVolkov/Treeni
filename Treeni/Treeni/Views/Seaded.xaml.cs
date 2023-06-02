@@ -1,4 +1,5 @@
-﻿using Rg.Plugins.Popup.Extensions;
+﻿using Newtonsoft.Json;
+using Rg.Plugins.Popup.Extensions;
 using Rg.Plugins.Popup.Pages;
 using System;
 using System.Collections.Generic;
@@ -87,8 +88,14 @@ namespace Treeni.Views
             App.Databases.DeleteUserSettings();
             // Save user settings to SQLite database
             App.Databases.SaveUserSettingsAsync(userSettings);
+            var email = emailEntry.Text;
+            if (string.IsNullOrEmpty(email) || !email.Contains("@"))
+            {
+                await DisplayAlert("Viga", "Palun sisestage kehtiv e-posti aadress", "OK");
+                return;
+            }
 
-            await DisplayAlert("Saved", "Your settings have been saved.", "OK");
+            await DisplayAlert("Salvestatud", "Teie seaded on salvestatud", "OK");
             UpdatePageData();
         }
 

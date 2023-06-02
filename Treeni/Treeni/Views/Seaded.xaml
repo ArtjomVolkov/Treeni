@@ -24,7 +24,7 @@
                 <Entry x:Name="emailEntry" MaxLength="35" TextChanged="emailEntry_TextChanged" Keyboard="Email"/>
 
                 <Label Text="Telefon" />
-                <Entry x:Name="telEntry" MaxLength="35" TextChanged="telEntry_TextChanged" Keyboard="Telephone"/>
+                <Entry x:Name="telEntry" MaxLength="14" TextChanged="telEntry_TextChanged" Keyboard="Telephone"/>
 
                 <Button Text="Privacy Policy" Clicked="OnPrivacyPolicyClicked" />
 

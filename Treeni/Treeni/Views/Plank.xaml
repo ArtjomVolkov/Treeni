@@ -16,7 +16,7 @@
                    VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                     <Button x:Name="StartBtn" Text="Start" Clicked="StartTimerButton_Clicked" />
-                    <Button x:Name="OffBtn" Text="End" Clicked="EndTimerButton_Clicked" />
+                    <Button x:Name="OffBtn" Text="End" Clicked="EndTimerButton_Clicked"/>
                 </StackLayout>
                 <Button x:Name="NextExerciseButton" Text="Järgmine harjutus" Clicked="NextExerciseButton_Clicked"
                     IsVisible="True" HorizontalOptions="CenterAndExpand" />

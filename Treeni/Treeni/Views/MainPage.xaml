@@ -47,7 +47,7 @@
                         <Frame Grid.Row="0" CornerRadius="19" OutlineColor="black" BackgroundColor="#3498db" Padding="20" Margin="2">
                             <StackLayout>
                                 <Label Text="Nädala eesmärk" FontSize="Title" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White"/>
-                                <Label Text="Parimate tulemuste saavutamiseks seadke iganädalased eesmärgid" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+                                <Label x:Name="eesmark_text" Text="Parimate tulemuste saavutamiseks seadke iganädalased eesmärgid" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White"/>
                                 <Button Text="Eesmärk" BackgroundColor="#3498db" TextColor="White" Padding="10" CornerRadius="60" Clicked="OnGoalButtonClicked"/>
                             </StackLayout>
                         </Frame>
