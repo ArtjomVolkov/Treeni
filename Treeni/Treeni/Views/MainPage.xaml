@@ -47,44 +47,44 @@
                         <Frame Grid.Row="0" CornerRadius="19" OutlineColor="black" BackgroundColor="#3498db" Padding="20" Margin="2">
                             <StackLayout>
                                 <Label Text="Nädala eesmärk" FontSize="Title" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White"/>
-                                <Label x:Name="eesmark_text" Text="Parimate tulemuste saavutamiseks seadke iganädalased eesmärgid" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+                                <Label x:Name="eesmark" Text="Parimate tulemuste saavutamiseks seadke iganädalased eesmärgid" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White"/>
                                 <Button Text="Eesmärk" BackgroundColor="#3498db" TextColor="White" Padding="10" CornerRadius="60" Clicked="OnGoalButtonClicked"/>
                             </StackLayout>
                         </Frame>
                     </Grid>
                 </StackLayout>
                 <StackLayout Grid.Row="1" Padding="4" BackgroundColor="White">
-                    <Label Text="Kõhulihaste treening" FontSize="Medium" FontFamily="Arial"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                    <Label x:Name="planktext"  Text="Kõhulihaste treening" FontSize="Medium" FontFamily="Arial"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
                     <Image x:Name="Plank" Source="plank.jpg" HeightRequest="170" WidthRequest="300" Opacity="0.8" Grid.Column="1" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Plank_Dc"/>
                         </Image.GestureRecognizers>
                     </Image>
-                    <Label Text="Rindkere treening" FontSize="Medium" FontFamily="Arial"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                    <Label x:Name="grudtext" Text="Rindkere treening" FontSize="Medium" FontFamily="Arial"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
                     <Image x:Name="Grud" Source="grud.jpg" HeightRequest="170" WidthRequest="300" Opacity="0.8" Grid.Column="1" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Grud_Dc"/>
                         </Image.GestureRecognizers>
                     </Image>
-                    <Label Text="Käte treening" FontSize="Medium" FontFamily="Arial" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                    <Label x:Name="rukitext" Text="Käte treening" FontSize="Medium" FontFamily="Arial" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
                     <Image x:Name="Ruki" Source="ruki.jpg" HeightRequest="170" WidthRequest="300" Opacity="0.8" Grid.Column="2" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Ruki_Dc"/>
                         </Image.GestureRecognizers>
                     </Image>
-                    <Label Text="Jalgade treening" FontSize="Medium" FontFamily="Arial" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                    <Label x:Name="nogitext" Text="Jalgade treening" FontSize="Medium" FontFamily="Arial" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
                     <Image x:Name="Nogi" Source="nogi.jpg" HeightRequest="200" WidthRequest="300" Opacity="0.8" Grid.Column="3" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Nogi_Dc"/>
                         </Image.GestureRecognizers>
                     </Image>
-                    <Label Text="Õlgade treening" FontSize="Medium" FontFamily="Arial" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                    <Label x:Name="ple4itext" Text="Õlgade treening" FontSize="Medium" FontFamily="Arial" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
                     <Image x:Name="Ple4i" Source="ple4i.jpg" HeightRequest="200" WidthRequest="300" Opacity="0.8" Grid.Column="4" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Ple4i_DC"/>
                         </Image.GestureRecognizers>
                     </Image>
-                    <Label Text="Kogu keha programm 7x4" FontSize="Medium" FontFamily="Arial"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                    <Label x:Name="programtext" Text="Kogu keha programm 7x4" FontSize="Medium" FontFamily="Arial"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" />
                     <Image x:Name="program7x4" Source="program7x4.jpg" HeightRequest="170" WidthRequest="300" Opacity="0.8" Grid.Column="5" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>

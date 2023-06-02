@@ -13,6 +13,7 @@ using Treeni.Views;
 using Xamarin.Forms;
 using Rg.Plugins.Popup.Extensions;
 using System.Security.Cryptography;
+using System.Numerics;
 
 namespace Treeni
 {
@@ -72,6 +73,7 @@ namespace Treeni
         }
         private async void OnGoalButtonClicked(object sender, EventArgs args)
         {
+
             //модальное окно
             var popup = new PopupPage();
             popup.WidthRequest = 300;
@@ -98,6 +100,7 @@ namespace Treeni
             goalPicker.Items.Add("Käte treening");
             goalPicker.Items.Add("Jalgade treening");
             goalPicker.Items.Add("Õlgade treening");
+            goalPicker.Items.Add("Programm 4x7 treening");
             goalPicker.TextColor = Color.Black;
 
             // Получение цели и вывод ее в Picker
@@ -118,10 +121,55 @@ namespace Treeni
                 var selectedGoal = goalPicker.SelectedItem.ToString();
                 App.Current.Properties["Goal"] = selectedGoal;
                 App.Current.SavePropertiesAsync();
-                eesmark_text.Text = selectedGoal;
 
                 // Закрытие модального окна
                 PopupNavigation.Instance.PopAsync();
+                if (selectedGoal == "Kõhulihaste treening")
+                {
+                    planktext.IsVisible= true;
+                    Plank.IsVisible = true;
+                    grudtext.IsVisible = false;
+                    Grud.IsVisible = false;
+                    rukitext.IsVisible = false;
+                    Ruki.IsVisible = false;
+                    nogitext.IsVisible = false;
+                    Nogi.IsVisible = false;
+                    ple4itext.IsVisible = false;
+                    Ple4i.IsVisible = false;
+                    programtext.IsVisible = false;
+                    program7x4.IsVisible = false;
+                }
+                else if (selectedGoal == "Rindkere treening")
+                {
+                    planktext.IsVisible = false;
+                    Plank.IsVisible = false;
+                    grudtext.IsVisible = true;
+                    Grud.IsVisible = true;
+                    rukitext.IsVisible = false;
+                    Ruki.IsVisible = false;
+                    nogitext.IsVisible = false;
+                    Nogi.IsVisible = false;
+                    ple4itext.IsVisible = false;
+                    Ple4i.IsVisible = false;
+                    programtext.IsVisible = false;
+                    program7x4.IsVisible = false;
+                }
+                else if (selectedGoal == "Käte treening")
+                {
+
+                }
+                else if (selectedGoal == "Jalgade treening")
+                {
+
+                }
+                else if(selectedGoal == "Õlgade treening")
+                {
+
+                }
+                else if (selectedGoal == "Programm 4x7 treening")
+                {
+
+                }
             };
 
             layout.Children.Add(titleLabel);
